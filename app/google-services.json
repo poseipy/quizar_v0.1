@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1084579519867",
+    "firebase_url": "https://crud-quizar-1832c.firebaseio.com",
+    "project_id": "crud-quizar-1832c",
+    "storage_bucket": "crud-quizar-1832c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084579519867:android:935bba547a7eefb6f3b1de",
+        "android_client_info": {
+          "package_name": "com.example.quizar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1084579519867-7tl29ml2snnpp1g1lk7ghfk50v4404al.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.quizar",
+            "certificate_hash": "fdc43f5ff56990e260d6af49dfaab4e23288eec1"
+          }
+        },
+        {
+          "client_id": "1084579519867-9cas3d4rbue9u5hohgis4ch0i6gts7p6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzraziCkAzQzjZQqx9P2dgqU95IjUG7to"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1084579519867-9cas3d4rbue9u5hohgis4ch0i6gts7p6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
