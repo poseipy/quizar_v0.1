@@ -1,66 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:background="@android:color/white">
+    tools:context=".MenuActivity">
 
-    <TextView
-        android:id="@+id/countLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Q1"
-        android:textSize="22sp"
-        android:layout_marginTop="20dp"/>
-
-    <ImageView
-        android:id="@+id/questionImage"
+    <Button
+        android:id="@+id/playButton"
         android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:src="@drawable/image_megumin"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/questionText"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:text=""
-        android:textSize="14sp"/>
+        android:layout_height="wrap_content"
+        android:text="Play"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.39" />
 
     <Button
-        android:id="@+id/answerBtn1"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:text="answer1"
-        android:layout_marginTop="10dp"
-        android:onClick="checkAnswer"/>
+        android:id="@+id/communityButton"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="Community Level"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playButton"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/answerBtn2"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:text="answer2"
-        android:layout_marginTop="6dp"
-        android:onClick="checkAnswer"/>
+        android:id="@+id/settingButton"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="Setting"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/communityButton"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/answerBtn3"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:text="answer3"
-        android:layout_marginTop="6dp"
-        android:onClick="checkAnswer"/>
-
-    <Button
-        android:id="@+id/answerBtn4"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:text="answer4"
-        android:layout_marginTop="6dp"
-        android:onClick="checkAnswer"/>
-
-</LinearLayout>
+        android:id="@+id/quitButton"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="Quit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingButton"
+        app:layout_constraintVertical_bias="0.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

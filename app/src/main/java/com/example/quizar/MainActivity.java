@@ -21,24 +21,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         playButton = findViewById(R.id.playButton);
         quitButton = findViewById(R.id.quitButton);
 
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, LevelActivity.class));
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
         quitButton.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
-            public void onClick(View v) {
-                finishAffinity();
-                Toast.makeText(MainActivity.this, "Ini Tombol quit", Toast.LENGTH_SHORT).show();
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this, RegisActivity.class));
             }
         });
     }
-
 }

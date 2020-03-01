@@ -11,6 +11,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -28,22 +31,21 @@ public class LevelActivity extends AppCompatActivity{
     private String rightAnswer;
     private int rightAnswerCount = 0;
     private int quizCount = 1;
-    private String questionContent;
+
+    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference mLevelsRef = mRootRef.child("levels");
+    private DatabaseReference mOneRef = mLevelsRef.child("1");
 
     ArrayList<ArrayList<String>> quizArray = new ArrayList<>();
 
-    String[][] quizData = new String[][]{
-            {"image_megumin", "explosive thingy", "blue thingy", "that one with pain problem", "useless main","what kind of thing is zis"},
-            {"image_protos", "you must construct additional pylon", "basreng", "darawet", "anjay ormas rasis","his favorite line"},
-            {"image_opp","they sayy sokka","anjay","mambrur","lolobi","what he say"},
-            {"image_tsun", "this is not it's like the right answer!", "this is correct", "probably this one", "this one","which line is more likely for her to say"}
+    DatabaseReference[][] quizData = new DatabaseReference[][]{
+            {mOneRef},
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
-
         questionText = findViewById(R.id.questionText);
         countLabel = findViewById(R.id.countLabel);
         questionImage = findViewById(R.id.questionImage);
@@ -52,14 +54,14 @@ public class LevelActivity extends AppCompatActivity{
         answerBtn3 = findViewById(R.id.answerBtn3);
         answerBtn4 = findViewById(R.id.answerBtn4);
 
-        for (String[] quizDatum : quizData) {
+        for (DatabaseReference[] quizDatum : quizData) {
             ArrayList<String> tmpArray = new ArrayList<>();
-            tmpArray.add(quizDatum[0]); // Image Name
-            tmpArray.add(quizDatum[1]); // Right Answer
-            tmpArray.add(quizDatum[2]); // Choice1
-            tmpArray.add(quizDatum[3]); // Choice2
-            tmpArray.add(quizDatum[4]); // Choice3
-            tmpArray.add(quizDatum[5]); //question
+            tmpArray.add(String.valueOf(quizDatum[0])); // Image Name
+            tmpArray.add(String.valueOf(quizDatum[1])); // Right Answer
+            tmpArray.add(String.valueOf(quizDatum[2])); // Choice1
+            tmpArray.add(String.valueOf(quizDatum[3])); // Choice2
+            tmpArray.add(String.valueOf(quizDatum[4])); // Choice3
+            tmpArray.add(String.valueOf(quizDatum[5])); //question
             quizArray.add(tmpArray);
         }
 
@@ -79,8 +81,9 @@ public class LevelActivity extends AppCompatActivity{
         questionImage.setImageResource(
                 getResources().getIdentifier(quiz.get(0), "drawable", getPackageName()));
         rightAnswer = quiz.get(1);
-
         questionText.setText(quiz.get(5));
+
+        //help i'm stuck
 
         quiz.remove(0);
         quiz.remove(4);
