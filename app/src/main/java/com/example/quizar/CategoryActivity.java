@@ -1,10 +1,10 @@
 package com.example.quizar;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -14,7 +14,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class CategoryActivity extends AppCompatActivity {
     private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference mLevelRef = mRootRef.child("levels");
+    private DatabaseReference mLevelRef = mRootRef.child("levels_data");
 
     private TextView TxtView;
 

@@ -8,6 +8,8 @@ public class LevelData {
     private String s_answer_3;
     private String s_question;
 
+    public LevelData() {}
+
     public LevelData(String s_question_image, String s_right_answer, String s_answer_1, String s_answer_2, String s_answer_3, String s_question) {
         this.s_question_image = s_question_image;
         this.s_right_answer = s_right_answer;
