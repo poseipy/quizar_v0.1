@@ -2,8 +2,10 @@ package com.example.quizar;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,11 +16,15 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class TestLevelActivity extends AppCompatActivity {
+public class LevelCreation extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference mRootRef = database.getReference();
+    DatabaseReference mLevelsRef = mRootRef.child("levels_data").push();
+    DatabaseReference mCategoryRef = mRootRef.child("level_category");
+    DatabaseReference mTittleRef = mRootRef.child("levels_tittle");
 
+    EditText levels_Tittle;
     EditText question_image;
     EditText right_answer;
     EditText answer_1;
@@ -26,11 +32,14 @@ public class TestLevelActivity extends AppCompatActivity {
     EditText answer_3;
     EditText question;
     Button create_level;
+    Spinner spinner_category;
+
+    String levels_id = mLevelsRef.getKey();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_level);
+        setContentView(R.layout.activity_level_creation);
         question_image = findViewById(R.id.question_image);
         right_answer = findViewById(R.id.right_answer);
         answer_1 = findViewById(R.id.answer_1);
@@ -38,6 +47,13 @@ public class TestLevelActivity extends AppCompatActivity {
         answer_3 = findViewById(R.id.answer_3);
         question = findViewById(R.id.question);
         create_level = findViewById(R.id.create_level);
+        spinner_category = findViewById(R.id.spinnerCateogry);
+        levels_Tittle = findViewById(R.id.question_tittle);
+
+        ArrayAdapter<CharSequence> category = ArrayAdapter.createFromResource(this, R.array.Category, android.R.layout.simple_spinner_item);
+        category.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_category.setAdapter(category);
+
 
         insertData();
     }
@@ -52,12 +68,11 @@ public class TestLevelActivity extends AppCompatActivity {
                 String s_answer_2 = answer_2.getText().toString();
                 String s_answer_3 = answer_3.getText().toString();
                 String s_question = question.getText().toString();
-                LevelData levelData = new LevelData(s_question_image, s_right_answer, s_answer_1, s_answer_2,  s_answer_3,  s_question);
+                String s_category = spinner_category.getSelectedItem().toString();
+                LevelData levelData = new LevelData(s_question_image, s_right_answer, s_answer_1, s_answer_2, s_answer_3, s_question,s_category);
 
-                long mDateTime = 999999999999L - System.currentTimeMillis();
-                String mOrderTime = String.valueOf(mDateTime);
-
-                mRootRef.child("levels_data").child(mOrderTime).setValue(levelData).addOnSuccessListener(new OnSuccessListener<Void>() {
+                mCategoryRef.child(levels_id).setValue(s_category);
+                mLevelsRef.setValue(levelData).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(getApplicationContext(), "Succes",Toast.LENGTH_SHORT).show();
