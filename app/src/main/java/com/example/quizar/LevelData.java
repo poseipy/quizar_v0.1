@@ -7,14 +7,18 @@ public class LevelData {
     private String s_answer_2;
     private String s_answer_3;
     private String s_question;
+    private String s_category;
 
-    public LevelData(String s_question_image, String s_right_answer, String s_answer_1, String s_answer_2, String s_answer_3, String s_question) {
+    public LevelData() {}
+
+    public LevelData(String s_question_image, String s_right_answer, String s_answer_1, String s_answer_2, String s_answer_3, String s_question, String s_category) {
         this.s_question_image = s_question_image;
         this.s_right_answer = s_right_answer;
         this.s_answer_1 = s_answer_1;
         this.s_answer_2 = s_answer_2;
         this.s_answer_3 = s_answer_3;
         this.s_question = s_question;
+        this.s_category = s_category;
     }
 
     public String getS_question_image() {
@@ -63,5 +67,13 @@ public class LevelData {
 
     public void setS_question(String s_question) {
         this.s_question = s_question;
+    }
+
+    public String getS_category() {
+        return s_category;
+    }
+
+    public void setS_category(String s_category) {
+        this.s_category = s_category;
     }
 }

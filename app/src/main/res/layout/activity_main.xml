@@ -75,6 +75,22 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="48dp" />
 
+    <Button
+        android:id="@+id/testButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="64dp"
+        android:text="Insert Level"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_welcome"
+        app:layout_constraintVertical_bias="0.75" />
+
     <ProgressBar
         android:id="@+id/loading"
         android:layout_width="wrap_content"
@@ -90,5 +106,15 @@
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
+
+    <Button
+        android:id="@+id/playDemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play Demo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/testButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

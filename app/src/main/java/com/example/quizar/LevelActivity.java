@@ -35,7 +35,6 @@ public class LevelActivity extends AppCompatActivity{
     private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     private DatabaseReference mLevelsRef = mRootRef.child("levels");
     private DatabaseReference mOneRef = mLevelsRef.child("1");
-
     ArrayList<ArrayList<String>> quizArray = new ArrayList<>();
 
     DatabaseReference[][] quizData = new DatabaseReference[][]{
