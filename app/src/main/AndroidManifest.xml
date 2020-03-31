@@ -11,23 +11,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LevelCreation"></activity>
+        <activity android:name=".TestHashMapActivity">
+
+        </activity>
+        <activity android:name=".LevelCreation">
+        </activity>
         <activity android:name=".AuthTrain" />
         <activity android:name=".SettingActivity" />
         <activity android:name=".CommunityActivity" />
         <activity android:name=".CategoryActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".MenuActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisActivity" />
         <activity android:name=".LevelActivity" />
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

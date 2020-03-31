@@ -43,6 +43,8 @@ LevelCreation extends AppCompatActivity {
     EditText answer_2;
     EditText answer_3;
     EditText question;
+    String levelId;
+    String dataSnapshot;
     Button create_level;
     Spinner spinner_category;
 
@@ -82,10 +84,14 @@ LevelCreation extends AppCompatActivity {
         }
     }
 
+
+
     private void insertData(){
         create_level.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                levelId = mLevelsInfoRef.orderByKey().toString();
+
                 String s_question_image = question_image.getText().toString();
                 String s_right_answer = right_answer.getText().toString();
                 String s_answer_1 = answer_1.getText().toString();
@@ -94,8 +100,10 @@ LevelCreation extends AppCompatActivity {
                 String s_question = question.getText().toString();
                 String s_category = spinner_category.getSelectedItem().toString();
                 String level_name = levels_Tittle.getText().toString();
+                String S_selectedLevel = levelId.toString();
+                String dataSnapshot = null;
 
-                final LevelTitle levelTitle = new LevelTitle(level_name);
+                final LevelTitle levelTitle = new LevelTitle(level_name,S_selectedLevel,levelId,dataSnapshot);
                 final LevelData levelData = new LevelData(s_question_image, s_right_answer, s_answer_1, s_answer_2, s_answer_3, s_question, s_category);
 
                 searchExisableCategory(s_category, new Observer() {
@@ -128,7 +136,6 @@ LevelCreation extends AppCompatActivity {
             private DatabaseReference createCategory() {
                 DatabaseReference newOrOldCategory = mLevelsInfoRef.push();
                 newOrOldCategory.child("category").setValue(categoryName);
-
                 return newOrOldCategory;
             }
 
